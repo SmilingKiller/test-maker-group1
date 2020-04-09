@@ -49,7 +49,7 @@
 
     var listQuestionsPublishedURL=CONTEXT.ctx+'/web/project/current/list-questions-published.action';
 
-    var pagingHelper = new PaginationHelper(questionPagingUrl, listQuestionsURL, function (data) {
+    var pagingHelper = new PaginationHelper(questionPagingUrl, listQuestionsPublishedURL, function (data) {
         questions=data.questions;
         console.log('%s questions loaded.', questions.length);
         displayQuestions(questions);
