@@ -22,8 +22,8 @@
     var reviewStartDate = $('#reviewStartDate');
     var reviewFinishDate = $('#reviewFinishDate');
 
-    var toggleFormBtn = $('#show-edit-question-form-btn');
-    var newQuestionModal = $('#new-question-modal');
+    var toggleFormBtn = $('#show-edit-question-form-btn'); //this part is for edit
+    var newQuestionModal = $('#new-question-modal'); //新考题的框架表
     var submitQuestionBtn = $('#save-question-btn');
     var searchBox = $('#question-keyword');
     var batchUpdateStatusBtn=$('#batch-update-initial-status-btn');
@@ -144,7 +144,7 @@
     });
 
     toggleFormBtn.click(function (e) {
-        newQuestionModal.modal('toggle');
+        newQuestionModal.modal('toggle'); //toggle from hidden
     });
 
 

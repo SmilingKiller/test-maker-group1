@@ -7,10 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fbda22d-b3bf-491e-b5f3-9a53df1ce3f3" name="Default" comment="bug: admin log in, no poj">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/partials/client/paper-management/new-paper-form.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/client/paper-generating.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/client/paper-generating.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/client/paper-generating/paper-generating.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/client/paper-generating/paper-generating.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/client/question-management/manage-questions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/client/question-management/manage-questions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-04-09" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-04-09" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/tm/org/apache/jsp/WEB_002dINF/pages/client/paper_002dgenerating_jsp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/tm/org/apache/jsp/WEB_002dINF/pages/client/paper_002dgenerating_jsp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/tm/org/apache/jsp/WEB_002dINF/pages/client/paper_002dgenerating_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/tm/org/apache/jsp/WEB_002dINF/pages/client/paper_002dgenerating_jsp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,8 +47,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -132,7 +136,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
     <property name="editorconfig.notification" value="Applied .editorconfig settings" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/assets/templates/questions" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/WEB-INF/partials/client/paper-management" />
     <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.splitter.main.proportions" value="0.3" />
@@ -144,6 +148,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\test-maker-group1\test-maker\src\main\webapp\WEB-INF\partials\client\paper-management" />
       <recent name="C:\Users\wangs\Desktop\2020春\软件质量保障与测试\出题系统\test-maker\test-maker\src\main\webapp\assets\templates\questions" />
       <recent name="C:\Users\wangs\Desktop\2020春\软件质量保障与测试\出题系统\test-maker\test-maker\src\main\java\cn\cstqb\exam\testmaker\actions\projects\current" />
       <recent name="C:\Users\wangs\Desktop\2020春\软件质量保障与测试\出题系统\test-maker\test-maker\src\main\webapp\assets\js\client\paper-generating" />
@@ -552,7 +557,7 @@
       <workItem from="1586307226678" duration="20820000" />
       <workItem from="1586358665552" duration="1903000" />
       <workItem from="1586402769671" duration="3219000" />
-      <workItem from="1586411841289" duration="3734000" />
+      <workItem from="1586411841289" duration="32552000" />
     </task>
     <task id="LOCAL-00001" summary="update table project_users while creating a project">
       <created>1431599223217</created>
@@ -771,22 +776,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="428" y="149" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1584543325952" />
-    <state width="1493" height="218" key="GridCell.Tab.0.bottom" timestamp="1586415844659">
+    <state width="1493" height="218" key="GridCell.Tab.0.bottom" timestamp="1586450958674">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="218" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586415844659" />
-    <state width="1493" height="218" key="GridCell.Tab.0.center" timestamp="1586415844659">
+    <state width="1493" height="218" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586450958674" />
+    <state width="1493" height="218" key="GridCell.Tab.0.center" timestamp="1586450958674">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="218" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586415844659" />
-    <state width="1493" height="218" key="GridCell.Tab.0.left" timestamp="1586415844659">
+    <state width="1493" height="218" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586450958674" />
+    <state width="1493" height="218" key="GridCell.Tab.0.left" timestamp="1586450958674">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="218" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586415844659" />
-    <state width="1493" height="218" key="GridCell.Tab.0.right" timestamp="1586415844659">
+    <state width="1493" height="218" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586450958674" />
+    <state width="1493" height="218" key="GridCell.Tab.0.right" timestamp="1586450958674">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="218" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586415844659" />
+    <state width="1493" height="218" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586450958674" />
     <state x="299" y="67" key="Maven.ArtifactSearchDialog" timestamp="1584549175055">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

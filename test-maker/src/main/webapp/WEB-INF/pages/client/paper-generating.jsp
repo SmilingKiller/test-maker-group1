@@ -43,6 +43,13 @@
         </nav>
     </div>
 
+
+    <div class="row">
+        <jsp:include page="/WEB-INF/partials/client/paper-management/new-paper-form.jsp"/>
+    </div>
+
+
+
     <jsp:include page="/WEB-INF/partials/pagination-snippet.jsp"/>
 
     <div class="msg-area form-group">

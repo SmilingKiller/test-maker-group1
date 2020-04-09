@@ -3,8 +3,9 @@
     /*
      * Definition of DOM variables
      */
-    var dataTable = $('#question-mgmt-table'); //songli: this part is the core of displaying the table
+    var dataTable = $('#question-mgmt-table'); //songli: this part is the core of displaying the questions
     var questionForm = $('#edit-question-form');
+    var paperForm =$ ('#generate-paper-form'); //new paperForm
     var transitionContainer = $('#change-status-container');
 
     //form elements
@@ -23,7 +24,8 @@
     var reviewFinishDate = $('#reviewFinishDate');
 
     var toggleFormBtn = $('#show-edit-question-form-btn');
-    var newQuestionModal = $('#new-question-modal');
+    var newQuestionModal = $('#new-question-modal'); //there is one redundant usage
+    var newPaperModal=$('#new-paper-modal'); //new PaperModal
     var submitQuestionBtn = $('#save-question-btn');
     var searchBox = $('#question-keyword');
     var batchUpdateStatusBtn=$('#batch-update-initial-status-btn');
@@ -49,7 +51,7 @@
 
     var listQuestionsPublishedURL=CONTEXT.ctx+'/web/project/current/list-questions-published.action';
 
-    /* modified to fix paging displaying bug */
+    /* modified and fixed paging displaying bug */
     var pagingHelper = new PaginationHelper(questionPagingUrl, listQuestionsPublishedURL, function (data) {
         questions=data.questions;
         console.log('%s questions loaded.', questions.length);
@@ -146,8 +148,10 @@
         selectedQuestion.qualityAdmin=projectUsers[index];
     });
 
+    /* modified by wsl from newQuestionModal -> newPaperModal*/
     toggleFormBtn.click(function (e) {
-        newQuestionModal.modal('toggle');
+        //newQuestionModal.modal('toggle');
+        newPaperModal.modal('toggle');
     });
 
 
@@ -155,25 +159,27 @@
     /**
      * Resets form when the modal is hidden for whatever reason
      */
-    newQuestionModal.on('show.bs.modal', function (e) {
+    /* modified by wsl from newQuestionModal -> newPaperModal */
+    newPaperModal.on('show.bs.modal', function (e) {
         if (!selectedQuestion.id) {
             idSection.addClass('hidden');
         }
     });
 
-    newQuestionModal.on('hidden.bs.modal', wrapUp);
-    submitQuestionBtn.click(function (e) {
-        questionForm.submit();
+
+    newPaperModal.on('hidden.bs.modal', wrapUp);/* modified by wsl from newQuestionModal -> newPaperModal */
+    submitQuestionBtn.click(function (e) { //todo: this line must be replaced
+        paperForm.submit();
     });
     /**
      * Submit question form
      */
-    questionForm.submit(function (e) {
+    paperForm.submit(function (e) { /* modified by wsl from questionForm -> paperForm */
         e.preventDefault();
-        if (!validateQuestionForm()) {
+        if (!validateQuestionForm()) { //todo: this line must be replaced
             return false;
         }
-        saveQuestion();
+        saveQuestion(); //todo: this line must be replaced
     });
 
 
@@ -197,6 +203,7 @@
     /**
      * Binds the form values to the question model variable
      */
+    //should be changed to paper model variable
     function bindToModel() {
         var qId = questionForm.find('#question-id').val();
         if (qId!=='') {
@@ -321,6 +328,8 @@
     /**
      * what to happen when user clicks the 'edit' button
      */
+
+    /*this part is unnecessary*/
     dataTable.on('click','.edit-item', function (e) {
         e.preventDefault();
 
@@ -548,7 +557,7 @@
         authorSelectList.val('').trigger('change');
         reviewerSelectList.val('').trigger('change');
         qaSelectList.val('').trigger('change');
-        newQuestionModal.modal('hide');
+        newPaperModal.modal('hide');
 //        loadData(); //disabled to improve performance
     }
 })();
