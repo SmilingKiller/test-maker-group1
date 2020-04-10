@@ -125,9 +125,9 @@
 <%--                            </div>--%>
                             <label class="col-md-2 control-label">备注信息</label>
                             <div class="col-md-2">
-                                <textarea id='paper-description' name="description" class="datepicker form-control" rows="1" required></textarea>
+                                <textarea id='paper-description' name="description" class=" form-control" rows="1" required></textarea>
                             </div>
-<%--                            <label class="col-md-2 control-label">评审结束日期</label>--%>
+<%--                            <label class="col-md-2   control-label">评审结束日期</label>--%>
 <%--                            <div class="col-md-2">--%>
 <%--                                <input id='reviewFinishDate' name="reviewFinishDate" type='text' class="datepicker form-control" required>--%>
 <%--                            </div>--%>
@@ -149,7 +149,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
 <%--                <button id="save-question-btn" type="button" class="btn btn-primary">提交题目</button>--%>
-                <button id="save-paper-btn" type="button" class="btn btn-primary">提交试卷</button>
+                <button id="submit-paper-btn" type="button" class="btn btn-primary">提交试卷</button>
             </div>
         </div>
     </div>

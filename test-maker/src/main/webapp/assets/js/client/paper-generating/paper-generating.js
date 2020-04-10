@@ -27,13 +27,22 @@
     var newQuestionModal = $('#new-question-modal'); //there is one redundant usage
     var newPaperModal=$('#new-paper-modal'); //new PaperModal
     var submitQuestionBtn = $('#save-question-btn');
+    var submitPaperBtn = $('#submit-paper-btn');
     var searchBox = $('#question-keyword');
     var batchUpdateStatusBtn=$('#batch-update-initial-status-btn');
     var batchChangeInitialStatusModal = $('#batch-update-status-modal');
+
+
+    var paperName=$('#paperName'); //new form element paper-name
+    var paperDescription=$('#paper-description'); //new form element paper-description
+
     /*
      * Definition of model variables
      */
     var selectedQuestion={}, questions,transitions;
+    /* new type */
+    var newPaper={};
+
     var syllabus=CONTEXT.project.syllabus;
     var selectedChapter={}, chapters;
     var knowledgePoints, languages, questionTypes;
@@ -48,6 +57,7 @@
     var listQuestionsURL = CONTEXT.ctx + '/web/project/current/list-questions.action';
     var questionPagingUrl=CONTEXT.ctx + '/web/project/current/paging.action';
     var saveQuestionURL= CONTEXT.ctx + '/web/project/current/save-question.action';
+    var savePaperURL = CONTEXT.ctx + '/web/project/current/save-paper.action';
 
     var listQuestionsPublishedURL=CONTEXT.ctx+'/web/project/current/list-questions-published.action';
 
@@ -111,7 +121,7 @@
         var template=Handlebars.compile(source);
         batchChangeInitialStatusModal.find('#init-transition-actions-container').html(template({transitions: transitions4InitialStatus}));
         batchChangeInitialStatusModal.modal('show');
-    });
+    });//useless
 
 
     batchChangeInitialStatusModal.on('click','.transition-initial', function (e) {
@@ -128,12 +138,33 @@
                 });
             }
         }, false );
-    });
+    });//useless
 
+    /* modified to newPaper */
     authorSelectList.on('select2:select',function (e) {
         console.log('selecting author');
         var index = $(this).find(':selected').data('index');
-        selectedQuestion.author=projectUsers[index];
+        newPaper.author=projectUsers[index];
+        //$('b').html(index);
+    });
+
+    /*newly added paper name */
+    paperName.on('input propertychange',function(){
+        newPaper.name=$(this).val();
+        //$('b').html(val);
+    });
+
+    /*newly added paper description*/
+    paperDescription.on('input propertychange',function(){
+        var val = $(this).val();
+        var textNum = val.length;
+        if(textNum > 150){
+            textNum = 15;
+            alert("输入不得超过150字符");
+        }
+        newPaper.description=val;
+        //$('b').html(val);
+        //超过200个字提示
     });
 
     reviewerSelectList.on('select2:select',function (e) {
@@ -148,7 +179,7 @@
         selectedQuestion.qualityAdmin=projectUsers[index];
     });
 
-    /* modified by wsl from newQuestionModal -> newPaperModal*/
+    /* modified by wsl from newQuestionModal -> newPaperModal done*/
     toggleFormBtn.click(function (e) {
         //newQuestionModal.modal('toggle');
         newPaperModal.modal('toggle');
@@ -168,7 +199,7 @@
 
 
     newPaperModal.on('hidden.bs.modal', wrapUp);/* modified by wsl from newQuestionModal -> newPaperModal */
-    submitQuestionBtn.click(function (e) { //todo: this line must be replaced
+    submitPaperBtn.click(function (e) { //this line has be replaced
         paperForm.submit();
     });
     /**
@@ -176,10 +207,10 @@
      */
     paperForm.submit(function (e) { /* modified by wsl from questionForm -> paperForm */
         e.preventDefault();
-        if (!validateQuestionForm()) { //todo: this line must be replaced
+        if (!validatePaperForm()) { //this line has been replaced done
             return false;
         }
-        saveQuestion(); //todo: this line must be replaced
+        savePaper(); //this line has be replaced
     });
 
 
@@ -189,6 +220,20 @@
     function saveQuestion() {
         bindToModel();
         AjaxUtils.postData(saveQuestionURL, {question: selectedQuestion}, false).done(function () {
+            //if it's an update action, just update current page. otherwise go to the last page.
+            if(!_.isUndefined(selectedQuestion.id)) {
+                pagingHelper.highlightCurrentPage();
+            }else{
+                pagingHelper.goToLastPage(!selectedQuestion.id);
+            }
+            wrapUp();
+            loadData();
+        });
+    }
+
+    function savePaper() {
+        //todo: get questions id and bind to newPaper.questions
+        AjaxUtils.postData(savePaperURL, {paper: newPaper}, false).done(function () {
             //if it's an update action, just update current page. otherwise go to the last page.
             if(!_.isUndefined(selectedQuestion.id)) {
                 pagingHelper.highlightCurrentPage();
@@ -325,6 +370,23 @@
         return true;
     }
 
+    function validatePaperForm() {
+        if (!paperForm.valid()) {
+            return false;
+        }
+
+        if (paperName.val() === '') {
+            Dialogs.warning('请输入试卷名！');
+            return false;
+        }
+        if (paperDescription.val() === '') {
+            Dialogs.warning('请输入备注信息！');
+            return false;
+        }
+
+        return true;
+    }
+
     /**
      * what to happen when user clicks the 'edit' button
      */
@@ -403,7 +465,7 @@
         });
     }
     function loadData() {
-        /* modified by wsl and jxy */
+        /* modified by wsl and jxy done*/
         return $.get(listQuestionsPublishedURL, {
             pageSize: pagingHelper.pageSize,
             pageNumber: pagingHelper.currentPage

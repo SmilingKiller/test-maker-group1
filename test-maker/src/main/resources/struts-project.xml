@@ -22,6 +22,7 @@
         <action name="update" class="cn.cstqb.exam.testmaker.actions.projects.current.UpdateProjectAction" />
         <!--songli-->
         <action name="list-questions-published" class="cn.cstqb.exam.testmaker.actions.projects.current.ListQuestionsPublished" />
+        <action name="save-paper" class="cn.cstqb.exam.testmaker.actions.projects.current.SavePaper" />
     </package>
 
     <package name="project-status-actions" namespace="/web/project/status" extends="default-auth">
