@@ -39,5 +39,10 @@ public class ServiceModule extends AbstractModule {
         bind(IQuestionImageService.class).to(QuestionImageServiceImpl.class);
         bind(UserValidator.class).in(Singleton.class);
         bind(IInitializationService.class).to(InitializationServiceImpl.class);
+
+        /*modify by ymf*/
+        bind(IPaperService.class).to(PaperServiceImpl.class);
+        bind(IPaperQuestionService.class).to(PaperQuestionServiceImpl.class);
+
     }
 }

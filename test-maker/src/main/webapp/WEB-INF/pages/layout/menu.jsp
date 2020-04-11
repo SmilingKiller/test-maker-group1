@@ -11,6 +11,7 @@
         <li role="presentation"><a href="item-management.action" class="nav-menu-item">题目管理</a></li>
         <!--modified by jxy and wsl-->
         <li role="presentation" ><a href="paper-generating.action" class="nav-menu-item">组卷功能</a></li>
+        <li role="presentation" ><a href="paper-management.action" class="nav-menu-item">试卷管理</a></li>
     </ul>
 </s:if>
 <ul class="nav nav-pills nav-stacked">

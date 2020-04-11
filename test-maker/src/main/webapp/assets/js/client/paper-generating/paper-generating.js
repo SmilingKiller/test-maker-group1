@@ -33,6 +33,10 @@
     var batchChangeInitialStatusModal = $('#batch-update-status-modal');
 
 
+    //add by jxy dialog: warn to select question
+    var warnSelectQuestionModal = $("#select-question-dialog");
+
+
     var paperName=$('#paperName'); //new form element paper-name
     var paperDescription=$('#paper-description'); //new form element paper-description
 
@@ -42,6 +46,9 @@
     var selectedQuestion={}, questions,transitions;
     /* new type */
     var newPaper={};
+
+    var selectedQuestionId=[];
+
 
     var syllabus=CONTEXT.project.syllabus;
     var selectedChapter={}, chapters;
@@ -150,7 +157,9 @@
 
     /*newly added paper name */
     paperName.on('input propertychange',function(){
-        newPaper.name=$(this).val();
+
+        newPaper.paper_name=$(this).val();
+
         //$('b').html(val);
     });
 
@@ -182,7 +191,18 @@
     /* modified by wsl from newQuestionModal -> newPaperModal done*/
     toggleFormBtn.click(function (e) {
         //newQuestionModal.modal('toggle');
-        newPaperModal.modal('toggle');
+        //ADD by jxy
+        var check = $("table#question-mgmt-table input[type=checkbox]:checked");
+        check.each(function () {
+            var id =$(this).closest("tr").find("td:eq(1)").text();//获取选中行的question id
+            selectedQuestionId.push(id);
+            alert(id);
+        });
+        if (selectedQuestionId.length===0) { //没有选中，提示弹窗
+            warnSelectQuestionModal.modal("show");
+        }else{
+            newPaperModal.modal('toggle');
+        }
     });
 
 
@@ -233,13 +253,20 @@
 
     function savePaper() {
         //todo: get questions id and bind to newPaper.questions
-        AjaxUtils.postData(savePaperURL, {paper: newPaper}, false).done(function () {
+
+        var ids = selectedQuestionId.join('.');  //拼接后的ids
+        alert(ids);
+        selectedQuestionId = [];
+        AjaxUtils.postData(savePaperURL, {paper: newPaper, ids: ids}, false).done(function () {
             //if it's an update action, just update current page. otherwise go to the last page.
             if(!_.isUndefined(selectedQuestion.id)) {
                 pagingHelper.highlightCurrentPage();
             }else{
                 pagingHelper.goToLastPage(!selectedQuestion.id);
             }
+
+            selectedPaperQuestions = [];//clean array
+
             wrapUp();
             loadData();
         });
