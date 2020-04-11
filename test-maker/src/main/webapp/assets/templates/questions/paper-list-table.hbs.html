@@ -1,0 +1,38 @@
+<thead>
+<tr>
+    <th>ID</th>
+    <th>试卷名</th>
+    <th>描述</th>
+    <th>作者</th>
+    <th>发布时间</th>
+    {{#if showActions}}
+    <th class="action-col-2"></th>
+    {{/if}}
+</tr>
+</thead>
+<tbody>
+{{#each papers}}
+<tr data-index="{{@index}}" data-id="{{id}}">
+    <td>{{id}}</td>
+    <td>
+        {{paper_name}}
+    </td>
+    <td>
+        {{description}}
+    </td>
+    <td>{{author.fullName}}</td>
+    <td>{{date updatedOn}}</td>
+    {{#if ../showActions}}
+    <td>
+        <a href="#" class="edit-item"><i class="glyphicon glyphicon-edit"></i></a>
+        {{#if ../../showDelete}}
+        <a href="#" class="delete-item"><i class="glyphicon glyphicon-remove"></i></a>
+        {{/if}}
+        {{#if ../../showDetails}}
+        <a href="#" class="view-item"><i class="glyphicon glyphicon-file"></i></a>
+        {{/if}}
+    </td>
+    {{/if}}
+</tr>
+{{/each}}
+</tbody>

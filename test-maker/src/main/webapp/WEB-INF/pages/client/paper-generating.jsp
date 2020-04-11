@@ -49,6 +49,26 @@
     </div>
 
 
+    <div id="select-question-dialog" class="modal fade" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header modal-header-warning">
+                    <div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <span class="modal-title">组成试卷</span>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <h4>请选中题目</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <jsp:include page="/WEB-INF/partials/pagination-snippet.jsp"/>
 

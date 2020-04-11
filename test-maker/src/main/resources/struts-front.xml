@@ -72,6 +72,10 @@
         <action name="paper-generating">
             <result name="success">/WEB-INF/pages/client/paper-generating.jsp</result>
         </action>
+        <!--modified by jxy        -->
+        <action name="paper-management">
+            <result name="success">/WEB-INF/pages/client/paper-management.jsp</result>
+        </action>
 
 
     </package>

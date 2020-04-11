@@ -2,6 +2,7 @@ package cn.cstqb.exam.testmaker.guice;
 
 import cn.cstqb.exam.testmaker.dao.*;
 import cn.cstqb.exam.testmaker.dao.impl.*;
+import cn.cstqb.exam.testmaker.entities.Paper;
 import com.google.inject.AbstractModule;
 
 /**
@@ -47,5 +48,12 @@ public class DaoModule extends AbstractModule {
          */
         bind(UserDao.class).to(UserDaoImpl.class);
         bind(RoleDao.class).to(RoleDaoImpl.class);
+
+        /*modify by ymf
+         *
+         * Paper related  Dao
+         */
+        bind(PaperDao.class).to(PaperDaoImpl.class);
+        bind(PaperQuestionDao.class).to(PaperQuestionDaoImpl.class);
     }
 }

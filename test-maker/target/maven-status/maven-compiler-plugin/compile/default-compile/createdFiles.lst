@@ -1,1 +1,13 @@
 cn\cstqb\exam\testmaker\actions\projects\current\ListQuestionsPublished.class
+cn\cstqb\exam\testmaker\services\IPaperQuestionService.class
+cn\cstqb\exam\testmaker\services\impl\PaperServiceImpl.class
+cn\cstqb\exam\testmaker\services\impl\PaperQuestionServiceImpl.class
+cn\cstqb\exam\testmaker\dao\PaperQuestionDao.class
+cn\cstqb\exam\testmaker\dao\impl\PaperQuestionDaoImpl.class
+cn\cstqb\exam\testmaker\actions\projects\current\SavePaper.class
+cn\cstqb\exam\testmaker\entities\PaperQuestion.class
+cn\cstqb\exam\testmaker\entities\Paper.class
+cn\cstqb\exam\testmaker\actions\projects\current\ListPapers.class
+cn\cstqb\exam\testmaker\dao\PaperDao.class
+cn\cstqb\exam\testmaker\dao\impl\PaperDaoImpl.class
+cn\cstqb\exam\testmaker\services\IPaperService.class
